@@ -9,9 +9,6 @@ import UIKit
 
 
 // Extensao fora de uso - Ainda em desenvolvimento
-
-
-
 extension UIView {
     
     // @discardableResult - Atributo para desconsiderar caso certo cenário nao esteja sendo utilizado, evitando avisos de "unsed"

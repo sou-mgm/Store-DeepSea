@@ -43,7 +43,9 @@ final class CarouselView: UIView {
         mainCarouselView.backgroundColor = .white
         carousel.backgroundColor = .clear
         carousel.layer.cornerRadius = 12
-        carousel.layer.masksToBounds = true 
+        carousel.layer.masksToBounds = true
+        carousel.layer.borderColor = UIColor.lightGray.cgColor
+        carousel.layer.borderWidth = 1
         
     }
     func startView(){

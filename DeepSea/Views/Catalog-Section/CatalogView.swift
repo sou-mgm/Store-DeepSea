@@ -7,28 +7,49 @@
 
 import UIKit
 
-final class CatologView: UIView {
+//Protocolo para abertura de catalogo de produtos
+//Será ADD na View Controller que instanciar a view
+protocol CatalogViewDelegate: AnyObject {
+    func openProductByCategory(name: String)
+}
 
+final class CatalogView: UIView {
+   
+    //MARK: Objects
+    
+    
+    // Main View
     private lazy var catalogView: UIView = {
         let newObj = UIView(frame: .zero)
         newObj.translatesAutoresizingMaskIntoConstraints = false
         return newObj
     }()
     
-    lazy var catalog = Catalog(frame: .zero)
+    //Instacia uma Collection View
+    lazy var catalog = Catalog(frame: .zero, catalogs: catalogs)
+    //Array de itens
+    var catalogs: [CatalogItem] = []
+    //Delegate da collection view
+    weak var delegate: CatalogViewDelegate?
     
     //MARK: Over functions
-    public override init(frame: CGRect) {
+    
+    //Init
+    public init(frame: CGRect, catalogs: [CatalogItem]) {
         super.init(frame: frame)
+        self.catalogs = catalogs
         setupFeatures()
         startView()
         setupConstraint()
-        
+        //Defini o Delegate da collection view
+        catalog.delegate = self
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+   
     
     //MARK: functions
     
@@ -36,7 +57,7 @@ final class CatologView: UIView {
         catalogView.backgroundColor = .white
         catalog.backgroundColor = .clear
         
-        
+       
     }
     func startView(){
         addSubview(catalogView)
@@ -62,4 +83,15 @@ final class CatologView: UIView {
             priority: .required,
             constant: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }
+}
+//MARK: Extension
+//Extensao - Delegate da collection view
+extension CatalogView: CatalogDelegateVM {
+    //Add funcao
+    func openCatalog(name: String) {
+        //"Repassa a acao feita na collection view para a View Controller que estiver instanciando esta UIView"
+        self.delegate?.openProductByCategory(name: name)
+    }
+    
+    
 }

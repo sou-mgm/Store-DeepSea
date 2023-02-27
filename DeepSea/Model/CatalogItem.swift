@@ -8,10 +8,12 @@
 import UIKit
 
 class CatalogItem {
-    var name: String
-    var imageName: String
+    var id: Int  //ID
+    var name: String  //Nome do Item de Catalogo
+    var imageName: String //Nome da imagem
     
-    init(name: String, imageName: String) {
+    init(id: Int, name: String, imageName: String) {
+        self.id = id
         self.name = name
         self.imageName = imageName
     }

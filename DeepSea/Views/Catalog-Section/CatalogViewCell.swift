@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class CatalogViewCell: UICollectionViewCell {
     
     //Realiza o set das informacoes
     var catalogItem: CatalogItem? {
@@ -49,8 +49,8 @@ class CollectionViewCell: UICollectionViewCell {
         ivCatalog.contentMode = .scaleAspectFit
         ivCatalog.layer.cornerRadius = 54
         ivCatalog.layer.masksToBounds = true
-        ivCatalog.layer.borderColor = UIColor.gray.cgColor
-        ivCatalog.layer.borderWidth = 2
+        ivCatalog.layer.borderColor = UIColor.lightGray.cgColor
+        ivCatalog.layer.borderWidth = 1
     
         lbCatalogName.tintColor = UIColor(named: "deepBlue")
         //lbCatalogName.minimumScaleFactor = 0.5

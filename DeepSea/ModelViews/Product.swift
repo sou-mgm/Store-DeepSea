@@ -1,29 +1,30 @@
 //
-//  Catalog.swift
+//  Product.swift
 //  DeepSea
 //
-//  Created by Matheus Matias on 20/02/23.
+//  Created by Matheus Matias on 26/02/23.
 //
 
 import UIKit
 
-protocol CatalogDelegateVM: AnyObject {
-    func openCatalog(name: String)
+protocol ProductViewModelDelegate: AnyObject {
+    func openProductDetails(id: Int)
 }
-class Catalog: UIView {
+
+class Product: UIView{
     
     private lazy var collectionView = UICollectionView(
         frame: .zero,
-        collectionViewLayout: CatalogLayout()
+        collectionViewLayout: ProductLayout()
     )
     
-    var catalogs: [CatalogItem] = []
-    weak var delegate: CatalogDelegateVM?
+    var products: [ProductItem] = []
+    weak var delegate: ProductViewModelDelegate?
     
-    init(frame: CGRect, catalogs: [CatalogItem]){
-        super.init(frame: frame)
+    init(frame: CGRect,products: [ProductItem]) {
+         super.init(frame: frame)
+        self.products = products
         setupView()
-        self.catalogs = catalogs
         
     }
     
@@ -31,18 +32,16 @@ class Catalog: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupView(){
+    func setupView() {
         
-        //Setup padrao
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = .clear
         
         //Add view
         addSubview(collectionView)
-        
+        collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         //Constrains
         collectionView.setAnchor(
@@ -51,30 +50,26 @@ class Catalog: UIView {
             leading: leadingAnchor,
             trailing: trailingAnchor,
             priority: .required,
-            constant: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+            constant: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
         
         
-        collectionView.register(CatalogViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(ProductViewCell.self, forCellWithReuseIdentifier: "cell")
     }
-
 }
 
-extension Catalog: UICollectionViewDelegate, UICollectionViewDataSource {
-
+extension Product: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        catalogs.count
+        products.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CatalogViewCell
-        cell?.catalogItem = catalogs[indexPath.row]
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ProductViewCell
+        cell?.productCell = products[indexPath.row]
         return cell!
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.delegate?.openCatalog(name: catalogs[indexPath.row].name)
+        self.delegate?.openProductDetails(id: products[indexPath.row].id)
     }
-
-
+    
 }

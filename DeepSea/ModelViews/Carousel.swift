@@ -43,8 +43,9 @@ class Carousel: UIView {
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.isUserInteractionEnabled = false
+        collectionView.isUserInteractionEnabled = true
         collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
         
         // Add View
         addSubview(collectionView)
@@ -75,7 +76,7 @@ class Carousel: UIView {
     private func scheduleTimerIfNeeded(){
         guard imageNames.count > 1 else {return}
             timer?.invalidate()
-            timer = Timer.scheduledTimer(withTimeInterval: 4.0, repeats: true, block: { [weak self] _ in
+            timer = Timer.scheduledTimer(withTimeInterval: 7.0, repeats: true, block: { [weak self] _ in
                 self?.selectNext()
             })
             
