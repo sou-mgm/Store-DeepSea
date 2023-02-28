@@ -26,7 +26,7 @@ final class CatalogView: UIView {
     }()
     
     //Instacia uma Collection View
-    lazy var catalog = Catalog(frame: .zero, catalogs: catalogs)
+    lazy var catalog = CatalogCollectionView(frame: .zero, catalogs: catalogs)
     //Array de itens
     var catalogs: [CatalogItem] = []
     //Delegate da collection view

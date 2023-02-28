@@ -207,56 +207,70 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRm-yS-mTf">
                                                         <rect key="frame" x="0.0" y="1100" width="375" height="280"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8a-A0-GDL">
-                                                                <rect key="frame" x="20" y="25" width="335" height="45"/>
-                                                                <color key="backgroundColor" name="deepBlue"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="3Eb-OV-1Zp">
+                                                                <rect key="frame" x="10" y="20" width="355" height="165"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8a-A0-GDL">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="45"/>
+                                                                        <color key="backgroundColor" name="deepBlue"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="45" id="UQb-oC-MB4"/>
+                                                                        </constraints>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" title="Dúvidas">
+                                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </buttonConfiguration>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="12"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <segue destination="48z-F3-Z6g" kind="presentation" id="0iv-R6-hBE"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVn-Ov-wWv">
+                                                                        <rect key="frame" x="0.0" y="60" width="355" height="45"/>
+                                                                        <color key="backgroundColor" name="deepBlue"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" title="Encontrar loja"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="12"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <segue destination="QHj-5Q-Uba" kind="show" id="vK7-qS-yUk"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Am-wQ-VzX">
+                                                                        <rect key="frame" x="0.0" y="120" width="355" height="45"/>
+                                                                        <color key="backgroundColor" name="deepBlue"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" title="Quem somos"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="12"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <segue destination="7y8-bH-L00" kind="presentation" id="z3u-S1-jVl"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="45" id="UQb-oC-MB4"/>
+                                                                    <constraint firstItem="1Am-wQ-VzX" firstAttribute="height" secondItem="m8a-A0-GDL" secondAttribute="height" id="L2d-Wv-EG9"/>
+                                                                    <constraint firstItem="eVn-Ov-wWv" firstAttribute="height" secondItem="m8a-A0-GDL" secondAttribute="height" id="XVA-fg-Dcb"/>
                                                                 </constraints>
-                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="Dúvidas"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                        <integer key="value" value="12"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <segue destination="48z-F3-Z6g" kind="presentation" id="0iv-R6-hBE"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVn-Ov-wWv">
-                                                                <rect key="frame" x="20" y="85" width="335" height="45"/>
-                                                                <color key="backgroundColor" name="deepBlue"/>
-                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="Encontrar loja"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                        <integer key="value" value="12"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <segue destination="QHj-5Q-Uba" kind="show" id="vK7-qS-yUk"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Am-wQ-VzX">
-                                                                <rect key="frame" x="20" y="145" width="335" height="45"/>
-                                                                <color key="backgroundColor" name="deepBlue"/>
-                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="Quem somos"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                        <integer key="value" value="12"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <segue destination="7y8-bH-L00" kind="presentation" id="z3u-S1-jVl"/>
-                                                                </connections>
-                                                            </button>
+                                                            </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deep Sea Clothes 2023" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMY-Q6-Tyi">
-                                                                <rect key="frame" x="111" y="258" width="153" height="17"/>
+                                                                <rect key="frame" x="111" y="255" width="153" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="vBL-Vh-iTr"/>
+                                                                </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -264,23 +278,12 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="eVn-Ov-wWv" firstAttribute="centerX" secondItem="XRm-yS-mTf" secondAttribute="centerX" id="89b-QO-AiI"/>
-                                                            <constraint firstItem="1Am-wQ-VzX" firstAttribute="top" secondItem="eVn-Ov-wWv" secondAttribute="bottom" constant="15" id="8iD-hc-CWa"/>
-                                                            <constraint firstItem="eVn-Ov-wWv" firstAttribute="trailing" secondItem="m8a-A0-GDL" secondAttribute="trailing" id="Cnh-m0-KKy"/>
-                                                            <constraint firstItem="1Am-wQ-VzX" firstAttribute="height" secondItem="eVn-Ov-wWv" secondAttribute="height" id="EXJ-n4-KBL"/>
-                                                            <constraint firstItem="eVn-Ov-wWv" firstAttribute="height" secondItem="m8a-A0-GDL" secondAttribute="height" id="EhD-2P-4FU"/>
-                                                            <constraint firstItem="eVn-Ov-wWv" firstAttribute="top" secondItem="m8a-A0-GDL" secondAttribute="bottom" constant="15" id="ElF-pw-oci"/>
-                                                            <constraint firstItem="m8a-A0-GDL" firstAttribute="centerX" secondItem="XRm-yS-mTf" secondAttribute="centerX" id="FGh-7L-5ff"/>
-                                                            <constraint firstItem="1Am-wQ-VzX" firstAttribute="centerX" secondItem="XRm-yS-mTf" secondAttribute="centerX" id="G4J-nS-WO9"/>
-                                                            <constraint firstItem="kMY-Q6-Tyi" firstAttribute="centerX" secondItem="XRm-yS-mTf" secondAttribute="centerX" id="GQt-V6-OJj"/>
-                                                            <constraint firstItem="m8a-A0-GDL" firstAttribute="leading" secondItem="XRm-yS-mTf" secondAttribute="leading" constant="20" id="HEV-Ye-L4J"/>
-                                                            <constraint firstItem="m8a-A0-GDL" firstAttribute="top" secondItem="XRm-yS-mTf" secondAttribute="top" constant="25" id="Hno-V5-yAS"/>
-                                                            <constraint firstItem="1Am-wQ-VzX" firstAttribute="trailing" secondItem="eVn-Ov-wWv" secondAttribute="trailing" id="T86-i0-qiA"/>
-                                                            <constraint firstAttribute="bottom" secondItem="kMY-Q6-Tyi" secondAttribute="bottom" constant="5" id="Uov-oH-Ufp"/>
-                                                            <constraint firstItem="eVn-Ov-wWv" firstAttribute="leading" secondItem="m8a-A0-GDL" secondAttribute="leading" id="g3O-hg-k5L"/>
-                                                            <constraint firstItem="1Am-wQ-VzX" firstAttribute="leading" secondItem="eVn-Ov-wWv" secondAttribute="leading" id="mPv-C8-nQ1"/>
-                                                            <constraint firstAttribute="height" constant="280" id="mu8-Tt-Jzk"/>
-                                                            <constraint firstAttribute="trailing" secondItem="m8a-A0-GDL" secondAttribute="trailing" constant="20" id="nev-BP-Ohm"/>
+                                                            <constraint firstAttribute="height" constant="280" id="8z4-VC-n0p"/>
+                                                            <constraint firstAttribute="trailing" secondItem="3Eb-OV-1Zp" secondAttribute="trailing" constant="10" id="Yid-TM-RVT"/>
+                                                            <constraint firstItem="3Eb-OV-1Zp" firstAttribute="top" secondItem="XRm-yS-mTf" secondAttribute="top" constant="20" id="hqZ-EZ-ukP"/>
+                                                            <constraint firstItem="kMY-Q6-Tyi" firstAttribute="centerX" secondItem="XRm-yS-mTf" secondAttribute="centerX" id="nf0-OY-Thd"/>
+                                                            <constraint firstAttribute="bottom" secondItem="kMY-Q6-Tyi" secondAttribute="bottom" constant="5" id="s3W-7I-f9M"/>
+                                                            <constraint firstItem="3Eb-OV-1Zp" firstAttribute="leading" secondItem="XRm-yS-mTf" secondAttribute="leading" constant="10" id="uHg-5B-hHf"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>

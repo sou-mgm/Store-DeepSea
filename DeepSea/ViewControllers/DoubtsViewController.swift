@@ -1,17 +1,17 @@
 //
-//  SearchViewController.swift
+//  DoubtsViewController.swift
 //  DeepSea
 //
-//  Created by Matheus Matias on 16/02/23.
+//  Created by Matheus Matias on 28/02/23.
 //
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class DoubtsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let developing = Developing(frame: .zero, sectionName: "Pesquisa", colorView: UIColor(named: "deepBlue") ?? .white)
+        let developing = Developing(frame: .zero, sectionName: "Dúvidas", colorView: UIColor(named: "deepBlue") ?? .white)
         view.addSubview(developing)
         developing.translatesAutoresizingMaskIntoConstraints = false
         developing.setAnchor(
@@ -23,6 +23,5 @@ class SearchViewController: UIViewController {
             constant: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         
     }
-    
-   
+
 }

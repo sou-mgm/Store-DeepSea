@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Carousel: UIView {
+class CarouselCollectionView: UIView {
     
     //MARK: Elements
     
@@ -107,7 +107,7 @@ class Carousel: UIView {
     
 }
 
-extension Carousel: UICollectionViewDelegate,UICollectionViewDataSource{
+extension CarouselCollectionView: UICollectionViewDelegate,UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageNames.count

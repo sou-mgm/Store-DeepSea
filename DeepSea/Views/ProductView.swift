@@ -25,10 +25,11 @@ class ProductView: UIView {
         return newObj
     }()
     
-    lazy var productCollectionView  = Product(frame: .zero, products: products)
+    lazy var productCollectionView  = ProductCollectionView(frame: .zero, products: products)
     var products: [ProductItem] = []
     weak var delegate: ProductViewDelegate?
     var sectionTitle: String = ""
+    var viewSize: CGFloat = 300
     
     public init(frame: CGRect,sectionTitle:String, products:[ProductItem] ) {
         super.init(frame: frame)
@@ -58,7 +59,11 @@ class ProductView: UIView {
     }
     
     func setupConstraint(){
-        productView.heightAnchor.constraint(equalToConstant: 1000).isActive = true
+        
+        let heightView = productView.heightAnchor.constraint(equalToConstant: viewSize)
+        heightView.priority = .defaultLow
+        heightView.isActive = true
+        
         productView.setAnchor(
             top: topAnchor,
             bottom: bottomAnchor,
@@ -84,14 +89,22 @@ class ProductView: UIView {
             trailing: productView.trailingAnchor,
             priority: .required,
             constant: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+            
+        
     }
     
     
 }
 
 extension ProductView: ProductViewModelDelegate {
+    
     func openProductDetails(id: Int) {
         self.delegate?.openProductDetails(id: id)
+    }
+    
+    func setHeightView(value: CGFloat) {
+        viewSize = value
+        productView.heightAnchor.constraint(equalToConstant: viewSize + 100).isActive = true
     }
     
     

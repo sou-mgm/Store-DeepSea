@@ -19,7 +19,7 @@ final class CarouselView: UIView {
     
     var imageNames: [String] = []
     
-    lazy var carousel = Carousel(frame: .zero, images: imageNames)
+    lazy var carousel = CarouselCollectionView(frame: .zero, images: imageNames)
     
     
     //MARK: Over functions
