@@ -34,6 +34,8 @@ class ProductItem {
 }
 
 extension ProductItem {
+    
+    //Formata os valores de preco
     func getFormattedPrice() -> String {
         let price = price
         let formatter = NumberFormatter()

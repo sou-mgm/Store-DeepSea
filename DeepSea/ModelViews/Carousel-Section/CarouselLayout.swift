@@ -34,20 +34,9 @@ final class CarouselLayout: UICollectionViewFlowLayout {
             //Realiza um setup da celula (cell) para que ocupe a view inteira
             //itemSize - Propriedade padrao para definir o tamanho de cada célula.
             itemSize = collectionView.frame.size
+        
         }
     }
     
 
 }
-
-
-//    // Pergunta ao objeto de layout se há novos limites de layout para serem atualizado
-//    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
-//        //Se conseguir desembrulhar
-//        guard itemSize != newBounds.size else {
-//            return false
-//        }
-//
-//        itemSize = newBounds.size
-//        return true
-//    }

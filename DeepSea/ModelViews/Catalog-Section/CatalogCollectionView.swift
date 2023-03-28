@@ -7,10 +7,13 @@
 
 import UIKit
 
+//Ordem CollectionView -> Catalogo -> ViewController
 protocol CatalogDelegateVM: AnyObject {
     func openCatalog(name: String)
 }
 class CatalogCollectionView: UIView {
+    
+    //MARK: Elements
     
     private lazy var collectionView = UICollectionView(
         frame: .zero,
@@ -20,6 +23,7 @@ class CatalogCollectionView: UIView {
     var catalogs: [CatalogItem] = []
     weak var delegate: CatalogDelegateVM?
     
+    //MARK: Over functions
     init(frame: CGRect, catalogs: [CatalogItem]){
         super.init(frame: frame)
         setupView()
@@ -30,6 +34,8 @@ class CatalogCollectionView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: functions
     
     func setupView(){
         
@@ -59,6 +65,7 @@ class CatalogCollectionView: UIView {
 
 }
 
+//MARK: Extesion DataSource
 extension CatalogCollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -78,3 +85,4 @@ extension CatalogCollectionView: UICollectionViewDelegate, UICollectionViewDataS
 
 
 }
+

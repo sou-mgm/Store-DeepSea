@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ProductViewModelDelegate: AnyObject {
-    func openProductDetails(id: Int)
+    func openProductDetails(product: ProductItem)
     func setHeightView(value: CGFloat)
 }
 
@@ -73,7 +73,7 @@ extension ProductCollectionView: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.delegate?.openProductDetails(id: products[indexPath.row].id)
+        self.delegate?.openProductDetails(product: products[indexPath.row])
     }
     
 }

@@ -17,16 +17,19 @@ final class CarouselView: UIView {
         return newObj
     }()
     
+    //Array para armazenar imagens recebidas da ViewController
     var imageNames: [String] = []
+    var autoScroll: Bool = false
     
-    lazy var carousel = CarouselCollectionView(frame: .zero, images: imageNames)
+    private lazy var carousel = CarouselCollectionView(frame: .zero, images: imageNames, autoScroll: autoScroll)
     
     
     //MARK: Over functions
     
-    public init(frame: CGRect, imageNames: [String]) {
+    public init(frame: CGRect, imageNames: [String],autoScroll: Bool) {
         super.init(frame: frame)
         self.imageNames = imageNames
+        self.autoScroll = autoScroll
         setupFeatures()
         startView()
         setupConstraint()
@@ -39,8 +42,8 @@ final class CarouselView: UIView {
     
     //MARK: functions
     
-    func setupFeatures(){
-        mainCarouselView.backgroundColor = .white
+    private func setupFeatures(){
+        mainCarouselView.backgroundColor = .clear
         carousel.backgroundColor = .clear
         carousel.layer.cornerRadius = 12
         carousel.layer.masksToBounds = true
@@ -48,11 +51,11 @@ final class CarouselView: UIView {
         carousel.layer.borderWidth = 1
         
     }
-    func startView(){
+    private func startView(){
         addSubview(mainCarouselView)
         mainCarouselView.addSubview(carousel)
     }
-    func setupConstraint(){
+    private func setupConstraint(){
         
         mainCarouselView.heightAnchor.constraint(equalToConstant: 250).isActive = true
         mainCarouselView.setAnchor(
@@ -70,7 +73,7 @@ final class CarouselView: UIView {
             leading: mainCarouselView.leadingAnchor,
             trailing: mainCarouselView.trailingAnchor,
             priority: .required,
-            constant: UIEdgeInsets(top: 13, left: 13, bottom: 13, right: 13))
+            constant: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
        
     }
     

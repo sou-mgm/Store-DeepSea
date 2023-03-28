@@ -39,7 +39,7 @@ final class HeadView: UIView {
     }
     
     //MARK: functions
-    func setupFeatures(){
+    private func setupFeatures(){
         // Head View
         headView.backgroundColor = .white
         ivLogo.image = UIImage(named: "logo")
@@ -48,13 +48,13 @@ final class HeadView: UIView {
         
     }
     
-    func startView(){
+    private func startView(){
         addSubview(headView)
         headView.addSubview(ivLogo)
         
         
     }
-    func setupConstraint(){
+    private func setupConstraint(){
         
         //HeadView
         headView.heightAnchor.constraint(equalToConstant: 75).isActive = true

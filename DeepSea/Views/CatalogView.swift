@@ -27,7 +27,7 @@ final class CatalogView: UIView {
     
     //Instacia uma Collection View
     lazy var catalog = CatalogCollectionView(frame: .zero, catalogs: catalogs)
-    //Array de itens
+    //Array para armazenar imagens recebidas da ViewController
     var catalogs: [CatalogItem] = []
     //Delegate da collection view
     weak var delegate: CatalogViewDelegate?
@@ -53,17 +53,17 @@ final class CatalogView: UIView {
     
     //MARK: functions
     
-    func setupFeatures(){
+    private func setupFeatures(){
         catalogView.backgroundColor = .white
         catalog.backgroundColor = .clear
         
        
     }
-    func startView(){
+    private func startView(){
         addSubview(catalogView)
         catalogView.addSubview(catalog)
     }
-    func setupConstraint(){
+    private func setupConstraint(){
         
         catalogView.heightAnchor.constraint(equalToConstant: 130).isActive = true
         catalogView.setAnchor(
@@ -84,8 +84,9 @@ final class CatalogView: UIView {
             constant: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }
 }
-//MARK: Extension
+//MARK: Extension Delegate
 //Extensao - Delegate da collection view
+//Ordem CollectionView -> View
 extension CatalogView: CatalogDelegateVM {
     //Add funcao
     func openCatalog(name: String) {

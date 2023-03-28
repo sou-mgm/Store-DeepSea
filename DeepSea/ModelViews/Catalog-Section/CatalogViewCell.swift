@@ -8,7 +8,7 @@
 import UIKit
 
 class CatalogViewCell: UICollectionViewCell {
-    
+  
     //Realiza o set das informacoes
     var catalogItem: CatalogItem? {
         didSet {
@@ -19,15 +19,7 @@ class CatalogViewCell: UICollectionViewCell {
         }
     }
     
-    override init(frame: CGRect){
-        super.init(frame: frame)
-        setupView()
-        setupConstrains()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    //MARK: Elements
     
     private lazy var ivCatalog: UIImageView = {
         let newObj = UIImageView(frame: .zero)
@@ -40,6 +32,19 @@ class CatalogViewCell: UICollectionViewCell {
         newObj.translatesAutoresizingMaskIntoConstraints = false
         return newObj
     }()
+    
+    //MARK: Over functions
+    override init(frame: CGRect){
+        super.init(frame: frame)
+        setupView()
+        setupConstrains()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: functions
     
     func setupView() {
         contentView.backgroundColor = .clear
@@ -79,9 +84,5 @@ class CatalogViewCell: UICollectionViewCell {
         
     }
 
-    
-    
-    
-    
-    
 }
+

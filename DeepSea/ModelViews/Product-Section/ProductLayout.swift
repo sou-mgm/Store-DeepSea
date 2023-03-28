@@ -8,11 +8,15 @@
 import UIKit
 
 class ProductLayout: UICollectionViewFlowLayout {
+    //Realiza a configuracao do layout
     override init() {
         super.init()
+        //Espacamento de itens
         self.minimumInteritemSpacing = 0
-        self.minimumLineSpacing = 10
+        self.minimumLineSpacing = 12
+        //Direcao do scroll
         self.scrollDirection = .vertical
+        //Margens da secao
         self.sectionInset = .zero
         
     }
@@ -24,8 +28,12 @@ class ProductLayout: UICollectionViewFlowLayout {
     override func prepare() {
         super.prepare()
         if let collectionView = collectionView {
-            itemSize.width = collectionView.frame.width / 2.1
+            itemSize.width = collectionView.frame.width / 2.05
             itemSize.height = itemSize.width * 1.75
         }
     }
 }
+
+
+
+

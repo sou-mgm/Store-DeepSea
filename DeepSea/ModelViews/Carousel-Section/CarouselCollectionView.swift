@@ -16,28 +16,28 @@ class CarouselCollectionView: UIView {
         collectionViewLayout: CarouselLayout()
     )
     
-    var imageNames: [String] = []
+    var imageNames: [String] = [] 
     var selectedIndex: Int = 0
     private var timer: Timer?
     
     
     //MARK: Over functions
     
-    public init(frame: CGRect,images: [String]){
+    public init(frame: CGRect,images: [String], autoScroll: Bool){
         super.init(frame: frame)
         self.imageNames = images
-        setupView()
+        setupView(autoScroll: autoScroll)
     }
     
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+ 
     //MARK: functions
     
     
-    private func setupView(){
+    private func setupView(autoScroll: Bool){
         
         //Setup padrao
         collectionView.backgroundColor = .clear
@@ -46,6 +46,8 @@ class CarouselCollectionView: UIView {
         collectionView.isUserInteractionEnabled = true
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
+        
+        
         
         // Add View
         addSubview(collectionView)
@@ -64,8 +66,10 @@ class CarouselCollectionView: UIView {
             priority: .required,
             constant: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         
-        //Temporizador
-        scheduleTimerIfNeeded()
+        if autoScroll {
+            //Temporizador
+            scheduleTimerIfNeeded()
+        }
     }
     
     deinit {

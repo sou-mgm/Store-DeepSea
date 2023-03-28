@@ -9,7 +9,7 @@ import UIKit
 
 final class Developing: UIView {
     
-
+    
     //MARK: Elements
     private lazy var mainView: UIView = {
         let newObj = UIView(frame: .zero)

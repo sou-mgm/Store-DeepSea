@@ -40,11 +40,11 @@ class MainViewController: UIViewController{
     }()
     
     //Instancia a views 
-    lazy var headView = HeadView(frame: .zero)
-    lazy var carouselView = CarouselView(frame: .zero, imageNames: carouselImages)
-    lazy var catalogView = CatalogView(frame: .zero, catalogs: catalogs)
-    lazy var productView = ProductView(frame: .zero, sectionTitle: "MAIS VENDIDOS", products: products)
-    lazy var footerView = FooterView(frame: .zero)
+    private lazy var headView = HeadView(frame: .zero)
+    private lazy var carouselView = CarouselView(frame: .zero, imageNames: carouselImages, autoScroll: true)
+    private lazy var catalogView = CatalogView(frame: .zero, catalogs: catalogs)
+    private lazy var productView = ProductView(frame: .zero, sectionTitle: "MAIS VENDIDOS", products: products)
+    private lazy var footerView = FooterView(frame: .zero)
     
     var carouselImages: [String] = ["mar","oceano","praia1"]
     var catalogs: [CatalogItem] = []
@@ -61,18 +61,21 @@ class MainViewController: UIViewController{
         //Realiza set das features
         setupNavigationBar()
         setupFeaturesMainView()
-        initMainView() //Inicializa Views
-        setupConstraintMainView() //Realiza set das constrains
+        //Inicializa as views
+        initMainView()
+        //Habilita constrains
+        setupConstraintMainView()
         //Defini como delegate
         catalogView.delegate = self
         productView.delegate = self
         footerView.delegate = self
     }
     
+    
 
     //MARK: functions
     
-    func setupNavigationBar(){
+    private func setupNavigationBar(){
         let font = UIFont.systemFont(ofSize: 20, weight: .bold)
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: font]
@@ -87,7 +90,7 @@ class MainViewController: UIViewController{
         self.navigationItem.leftBarButtonItem = btAccount
     }
     
-    func setupFeaturesMainView(){
+    private func setupFeaturesMainView(){
         
         scrollView.showsVerticalScrollIndicator = false
         mainStackView.axis = .vertical
@@ -97,7 +100,7 @@ class MainViewController: UIViewController{
         
     }
     
-    func initMainView(){
+    private func initMainView(){
         
         scrollView.addSubview(containerView)
         containerView.addSubview(mainStackView)
@@ -109,7 +112,7 @@ class MainViewController: UIViewController{
     }
     
     
-    func setupConstraintMainView(){
+    private func setupConstraintMainView(){
         
         
         //ContainerView
@@ -135,7 +138,9 @@ class MainViewController: UIViewController{
             constant: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }
     
-    
+   
+
+    //MARK: Button funcs
     @objc func openAccountViewController(){
         let VC = AccountViewController()
         navigationController?.pushViewController(VC, animated: true)
@@ -153,12 +158,14 @@ class MainViewController: UIViewController{
 
 
 
-//Add protocolo para abertura de tela 
+//MARK: Extesion Delegates
 extension MainViewController: CatalogViewDelegate, ProductViewDelegate, FooterViewDelegate {
+    //Add protocolo para abertura das telas
+    //Ordem CollectionView -> View -> ViewController
     
-    
-    func openProductDetails(id: Int) {
+    func openProductDetails(product: ProductItem) {
         let VC = ProductDetailsViewController()
+        VC.product = product
         navigationController?.pushViewController(VC, animated: true)
     }
     

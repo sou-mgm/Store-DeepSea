@@ -8,11 +8,13 @@
 import UIKit
 
 protocol ProductViewDelegate: AnyObject {
-    func openProductDetails(id: Int)
+    func openProductDetails(product: ProductItem)
 }
 
 class ProductView: UIView {
-
+    
+    //MARK: Elements
+    
     private lazy var productView: UIView = {
         let newObj = UIView(frame: .zero)
         newObj.translatesAutoresizingMaskIntoConstraints = false
@@ -26,17 +28,23 @@ class ProductView: UIView {
     }()
     
     lazy var productCollectionView  = ProductCollectionView(frame: .zero, products: products)
+    //Array para armazenar imagens recebidas da ViewController
     var products: [ProductItem] = []
+    //Delegate da view
     weak var delegate: ProductViewDelegate?
     var sectionTitle: String = ""
+    //Tamanho predefinido da View, que altera de acordo com a quantidade de itens
     var viewSize: CGFloat = 300
     
+    //MARK: Over functions
+  
     public init(frame: CGRect,sectionTitle:String, products:[ProductItem] ) {
         super.init(frame: frame)
         self.products = products
         self.sectionTitle = sectionTitle
         setupView()
         setupConstraint()
+        //Defini como Delegate da collection view
         productCollectionView.delegate = self
     }
     
@@ -44,7 +52,9 @@ class ProductView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupView(){
+    //MARK: functions
+    
+    private func setupView(){
         
         productView.backgroundColor = .white
         topLabel.text = sectionTitle
@@ -58,7 +68,7 @@ class ProductView: UIView {
         productView.addSubview(productCollectionView)
     }
     
-    func setupConstraint(){
+    private func setupConstraint(){
         
         let heightView = productView.heightAnchor.constraint(equalToConstant: viewSize)
         heightView.priority = .defaultLow
@@ -96,10 +106,11 @@ class ProductView: UIView {
     
 }
 
+//MARK: Extension Delegate
 extension ProductView: ProductViewModelDelegate {
-    
-    func openProductDetails(id: Int) {
-        self.delegate?.openProductDetails(id: id)
+    //Ordem CollectionView -> View
+    func openProductDetails(product: ProductItem) {
+        self.delegate?.openProductDetails(product: product)
     }
     
     func setHeightView(value: CGFloat) {
@@ -109,4 +120,6 @@ extension ProductView: ProductViewModelDelegate {
     
     
 }
+
+
 

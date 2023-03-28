@@ -14,7 +14,9 @@ protocol FooterViewDelegate: AnyObject {
 }
 
 class FooterView: UIView {
-
+    
+    //MARK: Elements
+    
     private lazy var footerView: UIView = {
         let newObj = UIView(frame: .zero)
         newObj.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +57,11 @@ class FooterView: UIView {
         return newObj
     }()
     
+    //Delegate da view
     var delegate: FooterViewDelegate?
+    
+    //MARK: Over functions
+ 
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -68,7 +74,9 @@ class FooterView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupFeatures(){
+    //MARK: functions
+    
+    private func setupFeatures(){
         
         footerView.backgroundColor = .white
         
@@ -115,7 +123,7 @@ class FooterView: UIView {
         
     }
     
-    func setupView(){
+    private func setupView(){
         addSubview(footerView)
         footerView.addSubview(stackView)
         footerView.addSubview(lbFooter)
@@ -124,7 +132,7 @@ class FooterView: UIView {
         stackView.addArrangedSubview(btWhoWeAre)
     }
     
-    func setupConstrains(){
+    private func setupConstrains(){
         footerView.heightAnchor.constraint(equalToConstant: 280).isActive = true
         footerView.setAnchor(
             top: topAnchor,
@@ -151,6 +159,8 @@ class FooterView: UIView {
         lbFooter.bottomAnchor.constraint(equalTo: footerView.bottomAnchor,constant: 10).isActive = true
     }
     
+    //MARK: Button funcs
+    
     @objc func openDoubtsViewController(){
         self.delegate?.openDoubtsViewController()
     }
@@ -164,3 +174,5 @@ class FooterView: UIView {
     }
 
 }
+
+
